@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: File create
+on:
+  workflow_dispatch:
+jobs:
+  file_create:
+    runs-on: ubuntu-latest
+    steps:
+     - name: SSH Remote Commands
+       uses: appleboy/ssh-action@v1.1.0
+       with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          echo "Hello World" > hello.txt
+            
+  
